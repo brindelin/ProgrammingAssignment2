@@ -2,10 +2,6 @@
 ## the list contains definitions of the 'methods' of the matrix
 ## the methods allow us to get and set values from cache
 
-## setCache accepts the matrix list as input and returns its inverse
-## if the inverse has been calculated it returns it from cache
-## if not it calculates the inverse and returns it
-
 makeCacheMatrix <- function(x = matrix()) 
 {
   m <- NULL
@@ -23,18 +19,13 @@ makeCacheMatrix <- function(x = matrix())
        getinverse = getinverse)
 }
 
-
-## Write a short comment describing this function
+## setCache accepts the matrix list as input and returns its inverse
+## if the inverse has been calculated it returns it from cache
+## if not it calculates the inverse and returns it
 
 cacheSolve <- function(x, ...) 
 {
-        ## Return a matrix that is the inverse of 'x'
-
-  ##set M to the mean of the vector parameter
   m <- x$getinverse()
-  
-  ##if the value of m found in global environment is not null
-  ##then return that value
   if(!is.null(m))
   {
     message("getting cached data")
@@ -45,5 +36,4 @@ cacheSolve <- function(x, ...)
   m <- solve(data, ...)
   x$setinverse(m)
   m
-  
 }
